@@ -1,5 +1,5 @@
 
-# Download,compile and install djiosdk-core 
+# Download,compile and install djiosdk-core
 include(ExternalProject)
 # TODO VERSION may be changed
 set(VERSION "3.8.1")
@@ -16,9 +16,8 @@ ExternalProject_Add (
   GIT_TAG ${BRANCH_NAME}
   SOURCE_DIR  ${EXTERNAL_SOURCE_PATH}
   BINARY_DIR  ${EXTERNAL_BUILD_PATH}
-  CMAKE_COMMAND cd ${EXTERNAL_BUILD_PATH} && cmake ${EXTERNAL_SOURCE_PATH} -DADVANCED_SENSING=ON
+  CMAKE_COMMAND cd ${EXTERNAL_BUILD_PATH} && cmake ${EXTERNAL_SOURCE_PATH} -DADVANCED_SENSING=OFF
   BUILD_COMMAND   cd ${EXTERNAL_BUILD_PATH} &&  make djiosdk-core
   INSTALL_COMMAND cd ${EXTERNAL_BUILD_PATH} && sudo make install djiosdk-core
   )
 ExternalProject_Get_Property(${EXTERNAL_SOURCE_NAME} source_dir)
-
