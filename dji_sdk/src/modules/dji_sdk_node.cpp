@@ -129,40 +129,40 @@ DJISDKNode::initVehicle(ros::NodeHandle& nh_private)
 // clang-format off
 bool DJISDKNode::initServices(ros::NodeHandle& nh) {
   // Common to A3/N3 and M100
-  drone_activation_server   = nh.advertiseService("dji_sdk_D0/activation",                     &DJISDKNode::droneActivationCallback,        this);
-  drone_arm_server          = nh.advertiseService("dji_sdk_D0/drone_arm_control",              &DJISDKNode::droneArmCallback,               this);
-  drone_task_server         = nh.advertiseService("dji_sdk_D0/drone_task_control",             &DJISDKNode::droneTaskCallback,              this);
-  sdk_ctrlAuthority_server  = nh.advertiseService("dji_sdk_D0/sdk_control_authority",          &DJISDKNode::sdkCtrlAuthorityCallback,       this);
-  camera_action_server      = nh.advertiseService("dji_sdk_D0/camera_action",                  &DJISDKNode::cameraActionCallback,           this);
-  waypoint_upload_server    = nh.advertiseService("dji_sdk_D0/mission_waypoint_upload",        &DJISDKNode::missionWpUploadCallback,        this);
-  waypoint_action_server    = nh.advertiseService("dji_sdk_D0/mission_waypoint_action",        &DJISDKNode::missionWpActionCallback,        this);
-  waypoint_getInfo_server   = nh.advertiseService("dji_sdk_D0/mission_waypoint_getInfo",       &DJISDKNode::missionWpGetInfoCallback,       this);
-  waypoint_getSpeed_server  = nh.advertiseService("dji_sdk_D0/mission_waypoint_getSpeed",      &DJISDKNode::missionWpGetSpeedCallback,      this);
-  waypoint_setSpeed_server  = nh.advertiseService("dji_sdk_D0/mission_waypoint_setSpeed",      &DJISDKNode::missionWpSetSpeedCallback,      this);
-  hotpoint_upload_server    = nh.advertiseService("dji_sdk_D0/mission_hotpoint_upload",        &DJISDKNode::missionHpUploadCallback,        this);
-  hotpoint_action_server    = nh.advertiseService("dji_sdk_D0/mission_hotpoint_action",        &DJISDKNode::missionHpActionCallback,        this);
-  hotpoint_getInfo_server   = nh.advertiseService("dji_sdk_D0/mission_hotpoint_getInfo",       &DJISDKNode::missionHpGetInfoCallback,       this);
-  hotpoint_setSpeed_server  = nh.advertiseService("dji_sdk_D0/mission_hotpoint_updateYawRate", &DJISDKNode::missionHpUpdateYawRateCallback, this);
-  hotpoint_resetYaw_server  = nh.advertiseService("dji_sdk_D0/mission_hotpoint_resetYaw",      &DJISDKNode::missionHpResetYawCallback,      this);
-  hotpoint_setRadius_server = nh.advertiseService("dji_sdk_D0/mission_hotpoint_updateRadius",  &DJISDKNode::missionHpUpdateRadiusCallback,  this);
-  mission_status_server     = nh.advertiseService("dji_sdk_D0/mission_status",                 &DJISDKNode::missionStatusCallback,          this);
-  send_to_mobile_server     = nh.advertiseService("dji_sdk_D0/send_data_to_mobile",            &DJISDKNode::sendToMobileCallback,           this);
-  send_to_payload_server    = nh.advertiseService("dji_sdk_D0/send_data_to_payload",           &DJISDKNode::sendToPayloadCallback,          this);
-  query_version_server      = nh.advertiseService("dji_sdk_D0/query_drone_version",            &DJISDKNode::queryVersionCallback,           this);
-  local_pos_ref_server      = nh.advertiseService("dji_sdk_D0/set_local_pos_ref",              &DJISDKNode::setLocalPosRefCallback,         this);
+  drone_activation_server   = nh.advertiseService("dji_sdk/activation",                     &DJISDKNode::droneActivationCallback,        this);
+  drone_arm_server          = nh.advertiseService("dji_sdk/drone_arm_control",              &DJISDKNode::droneArmCallback,               this);
+  drone_task_server         = nh.advertiseService("dji_sdk/drone_task_control",             &DJISDKNode::droneTaskCallback,              this);
+  sdk_ctrlAuthority_server  = nh.advertiseService("dji_sdk/sdk_control_authority",          &DJISDKNode::sdkCtrlAuthorityCallback,       this);
+  camera_action_server      = nh.advertiseService("dji_sdk/camera_action",                  &DJISDKNode::cameraActionCallback,           this);
+  waypoint_upload_server    = nh.advertiseService("dji_sdk/mission_waypoint_upload",        &DJISDKNode::missionWpUploadCallback,        this);
+  waypoint_action_server    = nh.advertiseService("dji_sdk/mission_waypoint_action",        &DJISDKNode::missionWpActionCallback,        this);
+  waypoint_getInfo_server   = nh.advertiseService("dji_sdk/mission_waypoint_getInfo",       &DJISDKNode::missionWpGetInfoCallback,       this);
+  waypoint_getSpeed_server  = nh.advertiseService("dji_sdk/mission_waypoint_getSpeed",      &DJISDKNode::missionWpGetSpeedCallback,      this);
+  waypoint_setSpeed_server  = nh.advertiseService("dji_sdk/mission_waypoint_setSpeed",      &DJISDKNode::missionWpSetSpeedCallback,      this);
+  hotpoint_upload_server    = nh.advertiseService("dji_sdk/mission_hotpoint_upload",        &DJISDKNode::missionHpUploadCallback,        this);
+  hotpoint_action_server    = nh.advertiseService("dji_sdk/mission_hotpoint_action",        &DJISDKNode::missionHpActionCallback,        this);
+  hotpoint_getInfo_server   = nh.advertiseService("dji_sdk/mission_hotpoint_getInfo",       &DJISDKNode::missionHpGetInfoCallback,       this);
+  hotpoint_setSpeed_server  = nh.advertiseService("dji_sdk/mission_hotpoint_updateYawRate", &DJISDKNode::missionHpUpdateYawRateCallback, this);
+  hotpoint_resetYaw_server  = nh.advertiseService("dji_sdk/mission_hotpoint_resetYaw",      &DJISDKNode::missionHpResetYawCallback,      this);
+  hotpoint_setRadius_server = nh.advertiseService("dji_sdk/mission_hotpoint_updateRadius",  &DJISDKNode::missionHpUpdateRadiusCallback,  this);
+  mission_status_server     = nh.advertiseService("dji_sdk/mission_status",                 &DJISDKNode::missionStatusCallback,          this);
+  send_to_mobile_server     = nh.advertiseService("dji_sdk/send_data_to_mobile",            &DJISDKNode::sendToMobileCallback,           this);
+  send_to_payload_server    = nh.advertiseService("dji_sdk/send_data_to_payload",           &DJISDKNode::sendToPayloadCallback,          this);
+  query_version_server      = nh.advertiseService("dji_sdk/query_drone_version",            &DJISDKNode::queryVersionCallback,           this);
+  local_pos_ref_server      = nh.advertiseService("dji_sdk/set_local_pos_ref",              &DJISDKNode::setLocalPosRefCallback,         this);
 #ifdef ADVANCED_SENSING
-  subscribe_stereo_240p_server  = nh.advertiseService("dji_sdk_D0/stereo_240p_subscription",   &DJISDKNode::stereo240pSubscriptionCallback, this);
-  subscribe_stereo_depth_server = nh.advertiseService("dji_sdk_D0/stereo_depth_subscription",  &DJISDKNode::stereoDepthSubscriptionCallback,this);
-  subscribe_stereo_vga_server   = nh.advertiseService("dji_sdk_D0/stereo_vga_subscription",    &DJISDKNode::stereoVGASubscriptionCallback,  this);
-  camera_stream_server          = nh.advertiseService("dji_sdk_D0/setup_camera_stream",        &DJISDKNode::setupCameraStreamCallback,      this);
+  subscribe_stereo_240p_server  = nh.advertiseService("dji_sdk/stereo_240p_subscription",   &DJISDKNode::stereo240pSubscriptionCallback, this);
+  subscribe_stereo_depth_server = nh.advertiseService("dji_sdk/stereo_depth_subscription",  &DJISDKNode::stereoDepthSubscriptionCallback,this);
+  subscribe_stereo_vga_server   = nh.advertiseService("dji_sdk/stereo_vga_subscription",    &DJISDKNode::stereoVGASubscriptionCallback,  this);
+  camera_stream_server          = nh.advertiseService("dji_sdk/setup_camera_stream",        &DJISDKNode::setupCameraStreamCallback,      this);
 #endif
 
   // A3/N3 only
   if(!isM100())
   {
-    set_hardsync_server   = nh.advertiseService("dji_sdk_D0/set_hardsyc", &DJISDKNode::setHardsyncCallback, this);
-    mfio_config_server    = nh.advertiseService("dji_sdk_D0/mfio_config", &DJISDKNode::MFIOConfigCallback, this);
-    mfio_set_value_server = nh.advertiseService("dji_sdk_D0/mfio_set_value", &DJISDKNode::MFIOSetValueCallback, this);
+    set_hardsync_server   = nh.advertiseService("dji_sdk/set_hardsyc", &DJISDKNode::setHardsyncCallback, this);
+    mfio_config_server    = nh.advertiseService("dji_sdk/mfio_config", &DJISDKNode::MFIOConfigCallback, this);
+    mfio_set_value_server = nh.advertiseService("dji_sdk/mfio_set_value", &DJISDKNode::MFIOSetValueCallback, this);
   }
   return true;
 }
@@ -172,22 +172,22 @@ bool
 DJISDKNode::initFlightControl(ros::NodeHandle& nh)
 {
   flight_control_sub = nh.subscribe<sensor_msgs::Joy>(
-    "dji_sdk_D0/flight_control_setpoint_generic", 10,
+    "dji_sdk/flight_control_setpoint_generic", 10,
     &DJISDKNode::flightControlSetpointCallback,   this);
 
   flight_control_position_yaw_sub =
     nh.subscribe<sensor_msgs::Joy>(
-      "dji_sdk_D0/flight_control_setpoint_ENUposition_yaw", 10,
+      "dji_sdk/flight_control_setpoint_ENUposition_yaw", 10,
       &DJISDKNode::flightControlPxPyPzYawCallback, this);
 
   flight_control_velocity_yawrate_sub =
     nh.subscribe<sensor_msgs::Joy>(
-      "dji_sdk_D0/flight_control_setpoint_ENUvelocity_yawrate", 10,
+      "dji_sdk/flight_control_setpoint_ENUvelocity_yawrate", 10,
       &DJISDKNode::flightControlVxVyVzYawrateCallback, this);
 
   flight_control_rollpitch_yawrate_vertpos_sub =
     nh.subscribe<sensor_msgs::Joy>(
-      "dji_sdk_D0/flight_control_setpoint_rollpitch_yawrate_zposition", 10,
+      "dji_sdk/flight_control_setpoint_rollpitch_yawrate_zposition", 10,
       &DJISDKNode::flightControlRollPitchPzYawrateCallback, this);
 
   return true;
@@ -217,22 +217,22 @@ bool
 DJISDKNode::initSubscriber(ros::NodeHandle& nh)
 {
   gimbal_angle_cmd_subscriber = nh.subscribe<dji_sdk::Gimbal>(
-    "dji_sdk_D0/gimbal_angle_cmd", 10, &DJISDKNode::gimbalAngleCtrlCallback, this);
+    "dji_sdk/gimbal_angle_cmd", 10, &DJISDKNode::gimbalAngleCtrlCallback, this);
   gimbal_speed_cmd_subscriber = nh.subscribe<geometry_msgs::Vector3Stamped>(
-    "dji_sdk_D0/gimbal_speed_cmd", 10, &DJISDKNode::gimbalSpeedCtrlCallback, this);
+    "dji_sdk/gimbal_speed_cmd", 10, &DJISDKNode::gimbalSpeedCtrlCallback, this);
   return true;
 }
 
 bool
 DJISDKNode::initPublisher(ros::NodeHandle& nh)
 {
-  rc_publisher = nh.advertise<sensor_msgs::Joy>("dji_sdk_D0/rc", 10);
+  rc_publisher = nh.advertise<sensor_msgs::Joy>("dji_sdk/rc", 10);
 
   attitude_publisher =
-    nh.advertise<geometry_msgs::QuaternionStamped>("dji_sdk_D0/attitude", 10);
+    nh.advertise<geometry_msgs::QuaternionStamped>("dji_sdk/attitude", 10);
 
   battery_state_publisher =
-    nh.advertise<sensor_msgs::BatteryState>("dji_sdk_D0/battery_state",10);
+    nh.advertise<sensor_msgs::BatteryState>("dji_sdk/battery_state",10);
 
   /*!
    * - Fused attitude (duplicated from attitude topic)
@@ -240,18 +240,18 @@ DJISDKNode::initPublisher(ros::NodeHandle& nh)
    *       Z value is +9.8 when placed on level ground statically
    * - Raw angular velocity (body frame: FLU, rad/s^2)
    */
-  imu_publisher = nh.advertise<sensor_msgs::Imu>("dji_sdk_D0/imu", 10);
+  imu_publisher = nh.advertise<sensor_msgs::Imu>("dji_sdk/imu", 10);
 
   // Refer to dji_sdk.h for different enums for M100 and A3/N3
   flight_status_publisher =
-    nh.advertise<std_msgs::UInt8>("dji_sdk_D0/flight_status", 10);
+    nh.advertise<std_msgs::UInt8>("dji_sdk/flight_status", 10);
 
   /*!
    * gps_health needs to be greater than 3 for gps_position and velocity topics
    * to be trusted
    */
   gps_health_publisher =
-    nh.advertise<std_msgs::UInt8>("dji_sdk_D0/gps_health", 10);
+    nh.advertise<std_msgs::UInt8>("dji_sdk/gps_health", 10);
 
   /*!
    * NavSatFix specs:
@@ -261,7 +261,7 @@ DJISDKNode::initPublisher(ros::NodeHandle& nh)
    *   Altitude [m]. Positive is above the WGS 84 ellipsoid
    */
   gps_position_publisher =
-    nh.advertise<sensor_msgs::NavSatFix>("dji_sdk_D0/gps_position", 10);
+    nh.advertise<sensor_msgs::NavSatFix>("dji_sdk/gps_position", 10);
 
   /*!
    *   x [m]. Positive along navigation frame x axis
@@ -270,72 +270,72 @@ DJISDKNode::initPublisher(ros::NodeHandle& nh)
    *   For details about navigation frame, please see telemetry documentation in API reference
   */
   vo_position_publisher =
-          nh.advertise<dji_sdk::VOPosition>("dji_sdk_D0/vo_position", 10);
+          nh.advertise<dji_sdk::VOPosition>("dji_sdk/vo_position", 10);
   /*!
    * Height above home altitude. It is valid only after drone
    * is armed.
    */
   height_publisher =
-    nh.advertise<std_msgs::Float32>("dji_sdk_D0/height_above_takeoff", 10);
+    nh.advertise<std_msgs::Float32>("dji_sdk/height_above_takeoff", 10);
 
   velocity_publisher =
-    nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk_D0/velocity", 10);
+    nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk/velocity", 10);
 
   from_mobile_data_publisher =
-    nh.advertise<dji_sdk::MobileData>("dji_sdk_D0/from_mobile_data", 10);
+    nh.advertise<dji_sdk::MobileData>("dji_sdk/from_mobile_data", 10);
 
   from_payload_data_publisher =
-    nh.advertise<dji_sdk::PayloadData>("dji_sdk_D0/from_payload_data", 10);
+    nh.advertise<dji_sdk::PayloadData>("dji_sdk/from_payload_data", 10);
 
   // TODO: documentation and proper frame id
   gimbal_angle_publisher =
-    nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk_D0/gimbal_angle", 10);
+    nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk/gimbal_angle", 10);
 
   local_position_publisher =
-      nh.advertise<geometry_msgs::PointStamped>("dji_sdk_D0/local_position", 10);
+      nh.advertise<geometry_msgs::PointStamped>("dji_sdk/local_position", 10);
 
   local_frame_ref_publisher =
-      nh.advertise<sensor_msgs::NavSatFix>("dji_sdk_D0/local_frame_ref", 10, true);
+      nh.advertise<sensor_msgs::NavSatFix>("dji_sdk/local_frame_ref", 10, true);
 
   time_sync_nmea_publisher =
-      nh.advertise<nmea_msgs::Sentence>("dji_sdk_D0/time_sync_nmea_msg", 10);
+      nh.advertise<nmea_msgs::Sentence>("dji_sdk/time_sync_nmea_msg", 10);
 
   time_sync_gps_utc_publisher =
-      nh.advertise<dji_sdk::GPSUTC>("dji_sdk_D0/time_sync_gps_utc", 10);
+      nh.advertise<dji_sdk::GPSUTC>("dji_sdk/time_sync_gps_utc", 10);
 
   time_sync_fc_utc_publisher =
-      nh.advertise<dji_sdk::FCTimeInUTC>("dji_sdk_D0/time_sync_fc_time_utc", 10);
+      nh.advertise<dji_sdk::FCTimeInUTC>("dji_sdk/time_sync_fc_time_utc", 10);
 
   time_sync_pps_source_publisher =
-      nh.advertise<std_msgs::String>("dji_sdk_D0/time_sync_pps_source", 10);
+      nh.advertise<std_msgs::String>("dji_sdk/time_sync_pps_source", 10);
 
 #ifdef ADVANCED_SENSING
   stereo_240p_front_left_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/stereo_240p_front_left_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/stereo_240p_front_left_images", 10);
 
   stereo_240p_front_right_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/stereo_240p_front_right_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/stereo_240p_front_right_images", 10);
 
   stereo_240p_down_front_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/stereo_240p_down_front_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/stereo_240p_down_front_images", 10);
 
   stereo_240p_down_back_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/stereo_240p_down_back_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/stereo_240p_down_back_images", 10);
 
   stereo_240p_front_depth_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/stereo_240p_front_depth_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/stereo_240p_front_depth_images", 10);
 
   stereo_vga_front_left_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/stereo_vga_front_left_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/stereo_vga_front_left_images", 10);
 
   stereo_vga_front_right_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/stereo_vga_front_right_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/stereo_vga_front_right_images", 10);
 
   main_camera_stream_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/main_camera_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/main_camera_images", 10);
 
   fpv_camera_stream_publisher =
-    nh.advertise<sensor_msgs::Image>("dji_sdk_D0/fpv_camera_images", 10);
+    nh.advertise<sensor_msgs::Image>("dji_sdk/fpv_camera_images", 10);
 #endif
 
 
@@ -385,15 +385,15 @@ DJISDKNode::initPublisher(ros::NodeHandle& nh)
 
     // Details can be found in DisplayMode enum in dji_sdk.h
     displaymode_publisher =
-      nh.advertise<std_msgs::UInt8>("dji_sdk_D0/display_mode", 10);
+      nh.advertise<std_msgs::UInt8>("dji_sdk/display_mode", 10);
 
     angularRate_publisher =
-      nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk_D0/angular_velocity_fused", 10);
+      nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk/angular_velocity_fused", 10);
 
     acceleration_publisher =
-      nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk_D0/acceleration_ground_fused", 10);
+      nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk/acceleration_ground_fused", 10);
 
-    trigger_publisher = nh.advertise<sensor_msgs::TimeReference>("dji_sdk_D0/trigger_time", 10);
+    trigger_publisher = nh.advertise<sensor_msgs::TimeReference>("dji_sdk/trigger_time", 10);
 
     if (!initDataSubscribeFromFC(nh))
     {
@@ -477,10 +477,10 @@ DJISDKNode::initDataSubscribeFromFC(ros::NodeHandle& nh)
 
     // Advertise rc connection status only if this topic is supported by FW
     rc_connection_status_publisher =
-            nh.advertise<std_msgs::UInt8>("dji_sdk_D0/rc_connection_status", 10);
+            nh.advertise<std_msgs::UInt8>("dji_sdk/rc_connection_status", 10);
 
     flight_anomaly_publisher =
-            nh.advertise<dji_sdk::FlightAnomaly>("dji_sdk_D0/flight_anomaly", 10);
+            nh.advertise<dji_sdk::FlightAnomaly>("dji_sdk/flight_anomaly", 10);
   }
 
   int nTopic50Hz    = topicList50Hz.size();
@@ -542,19 +542,19 @@ DJISDKNode::initDataSubscribeFromFC(ros::NodeHandle& nh)
 
     // Advertise rtk data only when rtk is supported
     rtk_position_publisher =
-            nh.advertise<sensor_msgs::NavSatFix>("dji_sdk_D0/rtk_position", 10);
+            nh.advertise<sensor_msgs::NavSatFix>("dji_sdk/rtk_position", 10);
 
     rtk_velocity_publisher =
-            nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk_D0/rtk_velocity", 10);
+            nh.advertise<geometry_msgs::Vector3Stamped>("dji_sdk/rtk_velocity", 10);
 
     rtk_yaw_publisher =
-            nh.advertise<std_msgs::Int16>("dji_sdk_D0/rtk_yaw", 10);
+            nh.advertise<std_msgs::Int16>("dji_sdk/rtk_yaw", 10);
 
     rtk_position_info_publisher =
-            nh.advertise<std_msgs::UInt8>("dji_sdk_D0/rtk_info_position", 10);
+            nh.advertise<std_msgs::UInt8>("dji_sdk/rtk_info_position", 10);
 
     rtk_yaw_info_publisher =
-            nh.advertise<std_msgs::UInt8>("dji_sdk_D0/rtk_info_yaw", 10);
+            nh.advertise<std_msgs::UInt8>("dji_sdk/rtk_info_yaw", 10);
 
     if(vehicle->getFwVersion() > versionBase33)
     {
@@ -562,7 +562,7 @@ DJISDKNode::initDataSubscribeFromFC(ros::NodeHandle& nh)
 
       // Advertise rtk connection only when rtk is supported
       rtk_connection_status_publisher =
-              nh.advertise<std_msgs::UInt8>("dji_sdk_D0/rtk_connection_status", 10);
+              nh.advertise<std_msgs::UInt8>("dji_sdk/rtk_connection_status", 10);
     }
   }
 
