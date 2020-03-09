@@ -1,5 +1,5 @@
 <launch>
-    <node pkg="dji_sdk" type="dji_sdk_node" name="dji_sdk" output="screen">
+    <node pkg="dji_sdk" type="dji_sdk_node" name="dji_sdk" ns="drone1" output="screen">
     <!-- node parameters -->
     <param name="serial_name" type="string" value="/dev/ttyUSB0"/>
     <param name="baud_rate" type="int" value="921600"/>
@@ -9,4 +9,36 @@
     <param name="enc_key" type="string" value="66bb5bb7f63309a516e546aa6abb568917f91dc8fcbaefbca8bd72f75ada7904"/>
     <param name="use_broadcast" type="bool" value="false"/>
     </node>
+
+   <!-- Start nodelet manager and driver nodelets -->
+   <include file="$(find velodyne_driver)/launch/nodelet_manager.launch">
+	<arg name="device_ip" value="192.168.1.201"/>
+	<arg name="frame_id" value="DroneA/velodyne"/>
+	<arg name="manager" value="velodyne_nodelet_manager"/>
+	<arg name="model" value="VLP16"/>
+	<arg name="pcap" value=""/>
+	<arg name="port" value="2368"/>
+	<arg name="read_fast" value="false"/>
+	<arg name="read_once" value="false"/>
+	<arg name="repeat_delay" value="0.0"/>
+	<arg name="rpm" value="600"/>
+	<arg name="cut_angle" value="0.01"/>
+   </include>
+
+   <!-- Start point cloud nodelet -->
+   <include file="$(find velodyne_pointcloud)/launch/cloud_nodelet.launch">
+	<arg name="calibration" value="$(find velodyne_pointcloud)/params/VLP16db.yaml"/>
+	<arg name="manager" value="velodyne_nodelet_manager"/>
+	<arg name="max_range" value="130.0" />
+	<arg name="min_range" value="0.4"/>
+   </include>
+
+   <!-- Start laserscan nodelet -->
+   <include file="$(find velodyne_pointcloud)/launch/laserscan_nodelet.launch">
+	<arg name="manager" value="velodyne_nodelet_manager"/>
+	<arg name="ring" value="-1"/>
+	<arg name="resolution" value="0.007" />
+   </include>
+
+
 </launch>

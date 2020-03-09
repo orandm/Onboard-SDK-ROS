@@ -495,27 +495,27 @@ main(int argc, char** argv)
 
   // ROS stuff
   waypoint_upload_service = nh.serviceClient<dji_sdk::MissionWpUpload>(
-    "dji_sdk/mission_waypoint_upload");
+    "dji_sdk_D0/mission_waypoint_upload");
   waypoint_action_service = nh.serviceClient<dji_sdk::MissionWpAction>(
-    "dji_sdk/mission_waypoint_action");
+    "dji_sdk_D0/mission_waypoint_action");
   hotpoint_upload_service = nh.serviceClient<dji_sdk::MissionHpUpload>(
-    "dji_sdk/mission_hotpoint_upload");
+    "dji_sdk_D0/mission_hotpoint_upload");
   hotpoint_action_service = nh.serviceClient<dji_sdk::MissionHpAction>(
-    "dji_sdk/mission_hotpoint_action");
+    "dji_sdk_D0/mission_hotpoint_action");
   hotpoint_updateRadius_service =
     nh.serviceClient<dji_sdk::MissionHpUpdateRadius>(
-      "dji_sdk/mission_hotpoint_updateRadius");
+      "dji_sdk_D0/mission_hotpoint_updateRadius");
   hotpoint_update_yawRate_Service =
     nh.serviceClient<dji_sdk::MissionHpUpdateYawRate>(
-      "dji_sdk/mission_hotpoint_updateYawRate");
+      "dji_sdk_D0/mission_hotpoint_updateYawRate");
   drone_activation_service =
-    nh.serviceClient<dji_sdk::Activation>("dji_sdk/activation");
+    nh.serviceClient<dji_sdk::Activation>("dji_sdk_D0/activation");
   sdk_ctrl_authority_service = nh.serviceClient<dji_sdk::SDKControlAuthority>(
-    "dji_sdk/sdk_control_authority");
+    "dji_sdk_D0/sdk_control_authority");
   drone_task_service =
-    nh.serviceClient<dji_sdk::DroneTaskControl>("dji_sdk/drone_task_control");
+    nh.serviceClient<dji_sdk::DroneTaskControl>("dji_sdk_D0/drone_task_control");
   gps_pos_subscriber = nh.subscribe<sensor_msgs::NavSatFix>(
-    "dji_sdk/gps_position", 10, &gpsPosCallback);
+    "dji_sdk_D0/gps_position", 10, &gpsPosCallback);
 
   // Activate
   if (activate().result)
